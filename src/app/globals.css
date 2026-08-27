@@ -1,8 +1,38 @@
 @import "tailwindcss";
 
+/* ============================================================
+   柯达胶卷 (Kodak Film) 主题配色 —— 柯达黄主色
+   ============================================================
+   --k-yellow     柯达黄 主色 （Kodak Yellow / Pantone 109 C）
+   --k-yellow-dark 按钮按下 / hover 深黄
+   --k-red        柯达红 （点缀色：红不再是主色，只用在强调点）
+   --k-red-dark   深红点缀
+   --k-gold       金色 （Ektar / Portra 包装上的金属金边）
+   --k-cream      奶油底 （胶卷包装盒内衬那种奶油米白纸）
+   --k-cream-2    卡片表面（比底色略白，形成层次）
+   --k-ink        柯达说明书那种深墨黑文字
+   --k-paper-line 米黄分割线 / 卡片边框
+   --k-film-edge  胶卷暗盒边缘那种深棕黑
+   --k-film       Portra 包装盒上的 Portra 紫（点缀用）
+   ============================================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --k-yellow: #ffd200;
+  --k-yellow-dark: #f1bf00;
+  --k-yellow-soft: #fff4b8;
+  --k-red: #ff1f1f;
+  --k-red-dark: #d40000;
+  --k-red-soft: #ffe5e5;
+  --k-gold: #c89b3c;
+  --k-cream: #fff8d7;          /* 更偏黄的奶油纸（配合黄主色） */
+  --k-cream-2: #fffdf0;
+  --k-paper-line: #f0dda0;     /* 偏黄的纸边线 */
+  --k-ink: #2b1e12;
+  --k-film-edge: #3b1f14;
+  --k-film: #7a3b95;
+  --k-film-soft: #f4e9fb;
+
+  --background: var(--k-cream);
+  --foreground: var(--k-ink);
 }
 
 @theme inline {
@@ -10,17 +40,411 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* 柯达品牌色 Token（黄主色） */
+  --color-k-yellow: var(--k-yellow);
+  --color-k-yellow-dark: var(--k-yellow-dark);
+  --color-k-yellow-soft: var(--k-yellow-soft);
+  --color-k-red: var(--k-red);
+  --color-k-red-dark: var(--k-red-dark);
+  --color-k-red-soft: var(--k-red-soft);
+  --color-k-gold: var(--k-gold);
+  --color-k-cream: var(--k-cream);
+  --color-k-cream-2: var(--k-cream-2);
+  --color-k-paper-line: var(--k-paper-line);
+  --color-k-ink: var(--k-ink);
+  --color-k-film-edge: var(--k-film-edge);
+  --color-k-film: var(--k-film);
+  --color-k-film-soft: var(--k-film-soft);
 }
 
+/* 深色模式：模拟胶卷暗盒 —— 黑色底 + 金边 + 柯达黄主点缀 */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --k-cream: #1a1407;          /* 更偏黄的深底 */
+    --k-cream-2: #261c0a;
+    --k-paper-line: #44331a;
+    --k-ink: #f7e7ce;
+    --background: var(--k-cream);
+    --foreground: var(--k-ink);
   }
 }
 
+/* 全局：奶油纸底 + 淡淡的黄/金颗粒杂色（配合黄主色，去掉红点） */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  background-image:
+    radial-gradient(rgba(200, 155, 60, 0.10) 1px, transparent 1px),
+    radial-gradient(rgba(255, 210, 0, 0.08) 1px, transparent 1px);
+  background-size: 22px 22px, 31px 31px;
+  background-position: 0 0, 11px 15px;
+  background-attachment: fixed;
+  /* 轻微褪色 + 偏暖黄，像老照片 */
+  filter: saturate(0.95) sepia(0.05) contrast(1.02);
+  overflow-x: hidden;
+}
+
+/* ==================================================================
+   胶片感分层遮罩层（通过 layout 中的 <div className="film-layers"> 激活）
+   ==================================================================
+   1. film-grain      :: 高分辨率 SVG film grain 噪点（multiply 叠加，比 CSS noise 更真）
+   2. film-vignette    :: 四角暗角（像镜头边缘进光少那样）
+   3. film-lightleak   :: 左上角 & 右下角漏光（红色/黄色光晕，像胶卷盒漏光）
+   4. film-dust        :: 随机散落的 6 粒灰尘 / 发丝（白点 + 黑点，负片 dust 痕迹）
+   5. film-halation    :: 中心柔光晕，模拟胶片银盐扩散 halation 高光溢出
+   ================================================================== */
+.film-layers {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9990;
+  mix-blend-mode: normal;
+}
+.film-layers > .grain {
+  position: absolute;
+  inset: -50%;
+  opacity: 0.13;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.15  0 0 0 0 0.08  0 0 0 0 0.02  0 0 0 0.9 0'/></filter><rect width='400' height='400' filter='url(%23n)'/></svg>");
+  background-size: 400px 400px;
+  animation: film-grain-shift 0.9s steps(3) infinite;
+}
+/* 暗角（用户要求取消，置为空样式占位，保留类名不动 layout） */
+.film-layers > .vignette { display: none; }
+.film-layers > .lightleak {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(255, 210, 0, 0.34), rgba(255, 210, 0, 0) 36%),
+    radial-gradient(circle at 100% 0%, rgba(255, 186, 0, 0.26), rgba(255, 186, 0, 0) 40%),
+    radial-gradient(circle at 100% 100%, rgba(255, 140, 0, 0.26), rgba(255, 140, 0, 0) 42%),
+    radial-gradient(circle at 0% 100%, rgba(200, 155, 60, 0.24), rgba(200, 155, 60, 0) 42%);
+  mix-blend-mode: screen;
+  opacity: 0.95;
+}
+.film-layers > .halation {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 35%, rgba(255, 245, 170, 0.22), rgba(0,0,0,0) 55%);
+  mix-blend-mode: screen;
+}
+.film-layers > .dust {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 12% 22%, rgba(255,255,255,0.7) 0 1.2px, transparent 2px),
+    radial-gradient(circle at 78% 14%, rgba(20,6,0,0.8) 0 1.5px, transparent 2.5px),
+    radial-gradient(circle at 33% 77%, rgba(255,255,255,0.55) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 66% 61%, rgba(20,6,0,0.7) 0 1.1px, transparent 2px),
+    radial-gradient(circle at 88% 83%, rgba(255,255,255,0.5) 0 0.9px, transparent 1.6px),
+    radial-gradient(circle at 5% 92%, rgba(20,6,0,0.55) 0 1.3px, transparent 2.2px),
+    radial-gradient(circle at 52% 45%, rgba(20,6,0,0.4) 0 0.7px, transparent 1.4px);
+  mix-blend-mode: normal;
+}
+
+/* 颗粒动画：每帧轻微位移，像放映机在走片 */
+@keyframes film-grain-shift {
+  0%   { transform: translate(0, 0); }
+  33%  { transform: translate(-6px, 4px); }
+  66%  { transform: translate(5px, -3px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* ==================================================================
+   35mm 胶片齿孔（sprocket hole）——上下两条，与画面框零间隙贴合
+   ================================================================== */
+.film-strip {
+  position: relative;
+  /* 上下 padding 恰好 = 齿孔条高度（22px），保证齿孔贴死画面框 */
+  padding: 22px 0;
+  min-height: 1px;
+}
+@media (max-width: 640px) {
+  .film-strip { padding: 22px 0; }
+}
+
+/* 上下两条黑色齿孔条（高度 22px，与上下列 padding 同高，形成无缝拼接） */
+.film-strip::before,
+.film-strip::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 22px;
+  background: linear-gradient(90deg, #0a0502, #050201 50%, #0a0502);
+  /* 齿孔条左右两边延伸一点点出画面框，像一整条完整的 35mm 胶片 */
+  box-shadow:
+    inset 0 0 0 1px rgba(200, 155, 60, 0.25);
+}
+.film-strip::before {
+  top: 0;
+  /* 底缘零缝隙：压到 film-frame 顶边同一层 */
+  border-bottom: 1px solid rgba(200, 155, 60, 0.2);
+}
+.film-strip::after {
+  bottom: 0;
+  border-top: 1px solid rgba(200, 155, 60, 0.2);
+}
+
+/* 齿孔（一排矩形小方洞）——用 mask 把黑色齿孔条"挖空"，露出下面的奶油底
+   每个齿孔宽 12px × 高 18px，每 38px 重复一次（和左右两侧版本的尺寸一致） */
+.film-strip::before {
+  -webkit-mask:
+    linear-gradient(#000, #000) content-box,
+    repeating-linear-gradient(
+      to right,
+      transparent 0 10px,
+      #000       10px 28px,     /* 齿孔：10~28px = 宽 18px（竖直方向的洞） */
+      transparent 28px 38px
+    ) 0 50% / 100% 12px no-repeat;
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+.film-strip::after {
+  -webkit-mask:
+    linear-gradient(#000, #000) content-box,
+    repeating-linear-gradient(
+      to right,
+      transparent 0 10px,
+      #000       10px 28px,
+      transparent 28px 38px
+    ) 0 50% / 100% 12px no-repeat;
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+
+/* 画面框本身（负片黑边）直接贴死齿孔，不要有外边距 */
+.film-strip > .film-frame {
+  margin: 0;
+  /* 黑边颜色和齿孔一致，视觉上连成一条底片 */
+  background: #050201;
+  border-radius: 0;
+  padding: 3px 4px;
+  box-shadow:
+    0 0 0 1px rgba(200, 155, 60, 0.2),
+    0 20px 50px -28px rgba(0, 0, 0, 0.8);
+}
+
+/* 内容框：模拟胶片画面（负片黑边 + 白卡纸，带日期戳） */
+.film-frame {
+  position: relative;
+  border-radius: 2px;
+  padding: 4px;
+  background: #0a0502; /* 负片的黑色边框 */
+  box-shadow:
+    0 0 0 1px rgba(200, 155, 60, 0.35),
+    0 20px 50px -28px rgba(0, 0, 0, 0.8);
+}
+.film-frame > .film-frame-inner {
+  background: var(--k-cream);
+  border-radius: 1px;
+  padding: 8px 4px 22px;
+  position: relative;
+}
+
+/* 右上角日期戳（傻瓜相机黄色印字效果） */
+.film-date-stamp {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #ffd200;
+  text-shadow:
+    0 1px 0 rgba(0,0,0,0.6),
+    0 0 3px rgba(255, 210, 0, 0.5);
+  padding: 2px 6px;
+  border: 1px solid rgba(255, 210, 0, 0.4);
+  border-radius: 2px;
+  background: rgba(20, 6, 0, 0.45);
+}
+
+/* 负片照片风格框（首页 hero 套这个，模拟冲印出来的照片+白边） */
+.photo-print {
+  padding: 10px 10px 44px;
+  background: #fbfaf0;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.6) inset,
+    0 12px 34px -18px rgba(60, 30, 0, 0.7),
+    0 0 0 1px rgba(200, 155, 60, 0.25);
+  transform: rotate(-0.6deg);
+  position: relative;
+}
+.photo-print::after {
+  /* 照片下方手写标题感 */
+  content: "FilmLedger · © 2026";
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  color: #3b1f14;
+}
+/* 照片胶带 */
+.photo-tape {
+  position: absolute;
+  width: 92px;
+  height: 24px;
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(255, 210, 0, 0.55) 0 8px,
+    rgba(255, 210, 0, 0.35) 8px 14px
+  );
+  border-left: 1px dashed rgba(200, 155, 60, 0.45);
+  border-right: 1px dashed rgba(200, 155, 60, 0.45);
+  box-shadow: 0 4px 8px -5px rgba(0,0,0,0.25);
+  mix-blend-mode: multiply;
+}
+
+/* 顶部冲印编号（卷号 + 帧号） */
+.film-frame-number {
+  position: absolute;
+  top: 6px;
+  left: 10px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: rgba(255, 210, 0, 0.85);
+  text-shadow: 0 0 2px rgba(0,0,0,0.7);
+}
+
+/* 轻微扫描线（像扫描出来的底片） */
+.scanlines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(0,0,0,0) 0 2px,
+    rgba(0,0,0,0.035) 2px 3px
+  );
+}
+
+/* 暗模式下：lightleak 红色稍微重一点，颗粒加深，整体更像暗房里冲出来的负片 */
+@media (prefers-color-scheme: dark) {
+  .film-layers > .grain { opacity: 0.17; }
+  .film-layers > .lightleak { opacity: 0.55; }
+  body { filter: saturate(1.05) contrast(1.06); }
+  .photo-print { background: #1a0f07; }
+  .photo-print::after { color: rgba(255, 247, 206, 0.7); }
+}
+
+/* 对性能不好的设备关颗粒动画 */
+@media (prefers-reduced-motion: reduce) {
+  .film-layers > .grain { animation: none; }
+}
+
+/* 通用卡片（所有用了 bg-white + border-zinc-200 的组件自动带上奶油卡纸 + 金边感） */
+@layer components {
+  .card-kodak {
+    background-color: var(--k-cream-2);
+    border: 1px solid var(--k-paper-line);
+    border-radius: 0.75rem;
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.6) inset,
+      0 6px 20px -12px rgba(200, 155, 60, 0.4);
+  }
+
+  /* 品牌按钮（柯达黄主色 → 金渐变，hover 加深黄） */
+  .btn-kodak {
+    background: linear-gradient(135deg, #ffef6e 0%, var(--k-yellow) 45%, var(--k-yellow-dark) 100%);
+    color: #3b1f14;
+    border-radius: 9999px;
+    padding: 0.6rem 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.55) inset,
+      0 8px 22px -10px rgba(255, 210, 0, 0.7),
+      0 0 0 1px rgba(200, 155, 60, 0.5);
+    transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+  .btn-kodak:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.04);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.6) inset,
+      0 12px 28px -10px rgba(255, 210, 0, 0.9),
+      0 0 0 1px rgba(200, 155, 60, 0.75),
+      0 0 0 4px rgba(255, 210, 0, 0.35);
+  }
+  .btn-kodak:active {
+    transform: translateY(0);
+    filter: brightness(0.96);
+  }
+
+  /* 柯达黄次按钮（和主色保持统一色调，略浅） */
+  .btn-kodak-yellow {
+    background: linear-gradient(180deg, var(--k-yellow-soft) 0%, var(--k-yellow-dark) 100%);
+    color: #3b1f14;
+    border-radius: 9999px;
+    padding: 0.5rem 1.1rem;
+    font-weight: 700;
+    border: 1px solid rgba(200, 155, 60, 0.5);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.5) inset,
+      0 4px 10px -6px rgba(200, 155, 60, 0.6);
+  }
+  .btn-kodak-yellow:hover {
+    filter: brightness(1.04);
+  }
+}
+
+/* 全局链接 hover 色：统一换成 柯达黄（深棕纸底 + 黄底描边感） */
+a:hover {
+  color: #b07b00;
+}
+
+/* 全局输入框 focus ring：柯达黄 */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 210, 0, 0.35), 0 0 0 1px var(--k-yellow-dark) inset !important;
+  border-color: var(--k-yellow-dark) !important;
+}
+
+/* 胶卷暗盒顶部黄色色带（装饰，用在 hero 顶部）—— 黄主色 + 下方金边 */
+@layer utilities {
+  .kodak-hero-band {
+    background:
+      linear-gradient(180deg, var(--k-yellow) 0%, var(--k-yellow-dark) 100%);
+    box-shadow: 0 8px 22px -10px rgba(255, 210, 0, 0.65);
+  }
+  .kodak-hero-band::after {
+    content: "";
+    display: block;
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--k-gold), var(--k-yellow), var(--k-gold));
+  }
+}
+
+/* 美化滚动条：柯达黄 → 金渐变 */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--k-cream); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--k-yellow), var(--k-gold));
+  border-radius: 9999px;
+  border: 2px solid var(--k-cream);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--k-yellow-dark); }
+
+/* 选中文本高亮：柯达黄底 + 深棕字，像胶卷盒封口黄胶带 */
+::selection {
+  background: var(--k-yellow);
+  color: #3b1f14;
+}
+::-moz-selection {
+  background: var(--k-yellow);
+  color: #3b1f14;
+}
+
+/* 暗模式下：漏光、颗粒偏黄更强，halation 加金色中心暖光 */
+@media (prefers-color-scheme: dark) {
+  .film-layers > .grain { opacity: 0.17; }
+  .film-layers > .lightleak { opacity: 0.65; }
+  body { filter: saturate(1.05) sepia(0.08) contrast(1.06); }
+  .photo-print { background: #1a1205; }
+  .photo-print::after { color: rgba(255, 247, 206, 0.7); }
 }
