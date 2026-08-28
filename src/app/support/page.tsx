@@ -36,7 +36,7 @@ export default function SupportPage() {
             icon="💬"
             color="#07C160"
             alt="WeChat Pay QR"
-            src="/qrcodes/wechat-pay.svg"
+            src="/qrcodes/wechat-pay.png"
           />
           {/* 支付宝收款码 */}
           <QRCard
@@ -44,7 +44,7 @@ export default function SupportPage() {
             icon="💰"
             color="#1677FF"
             alt="Alipay QR"
-            src="/qrcodes/alipay.svg"
+            src="/qrcodes/alipay.jpg"
           />
         </div>
 
@@ -135,20 +135,19 @@ function QRCard({
       className="film-frame group"
       style={{ ["--brand-color" as string]: color }}
     >
-      <div className="film-frame-inner flex flex-col items-center gap-3 px-4 py-5">
-        <span
-          className="film-frame-number"
-          style={{ color }}
-        >
+      <div className="film-frame-inner flex flex-col items-center gap-3 px-3 py-4">
+        <span className="film-frame-number" style={{ color }}>
           {icon} {label}
         </span>
-        <div className="relative aspect-square w-36 overflow-hidden rounded-lg border border-k-gold/30 bg-white shadow-sm">
+        {/* 完整官方收款码图片，直接展示 */}
+        <div className="w-full max-w-[260px] overflow-hidden rounded-xl border border-k-gold/30 shadow-md">
           <Image
             src={src}
             alt={alt}
-            fill
-            sizes="144px"
-            className="object-contain"
+            width={520}
+            height={520}
+            sizes="(max-width: 640px) 100vw, 260px"
+            className="block w-full h-auto"
           />
         </div>
       </div>
