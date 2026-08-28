@@ -207,7 +207,7 @@ const en = {
   "login.or_continue_social": "or continue with",
 
   // ---- Support page ----
-  "support.title": "Buy me a roll 🎞️",
+  "support.title": "I want to shoot 5294!! 🎞️",
   "support.subtitle":
     "This app is free. If it saved you money, scan any code below — any amount helps.",
   "support.qr_hint": "Scan with WeChat / Alipay to tip",
@@ -523,7 +523,7 @@ const zh = {
   "login.register": "创建账户",
   "login.or_continue_social": "或通过以下方式继续",
 
-  "support.title": "请我拍点什么 🎞️",
+  "support.title": "我想拍 5294！！ 🎞️",
   "support.subtitle":
     "这个 App 完全免费。如果它帮你算清了账，扫下方任意二维码就行——多少都好。",
   "support.qr_hint": "用微信 / 支付宝扫码打赏",
