@@ -61,12 +61,6 @@ export default function CookiesPage() {
                 necessary={t("cookies.row_next_necessary")}
                 desc={t("cookies.row_next_desc")}
               />
-              <CookieRow
-                name={t("cookies.row_creem_name")}
-                duration={t("cookies.row_creem_duration")}
-                necessary={t("cookies.row_creem_necessary")}
-                desc={t("cookies.row_creem_desc")}
-              />
             </tbody>
           </table>
         </div>
@@ -74,7 +68,7 @@ export default function CookiesPage() {
 
       <Section title="3. 第三方 Cookie">
         <p>
-          除了你主动跳转到 Creem 支付页（Creem 可能写入其自身 Cookie）之外，<b>本工具不主动加载任何第三方 JS、不设置任何第三方 Cookie</b>。
+          本工具<b>不主动加载任何第三方 JS、不设置任何第三方 Cookie</b>。用户通过「支持一下」页面扫码打赏（微信 / 支付宝）是本地 App 内完成，不涉及本站跨站跳转。
         </p>
         <ul className="space-y-2 pl-5 list-disc mt-2">
           <li>❌ 不使用 Google Analytics / 百度统计等流量分析脚本；</li>

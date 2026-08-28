@@ -208,9 +208,13 @@ const en = {
 
   // ---- Support page ----
   "support.title": "Buy me a roll 🎞️",
-  "support.subtitle": "This app is free. If it saved you money, chip in — anything helps.",
-  "support.cta": "I want to shoot 5294 🎞️",
-  "support.cta_pending": "Preparing Creem checkout…",
+  "support.subtitle":
+    "This app is free. If it saved you money, scan any code below — any amount helps.",
+  "support.qr_hint": "Scan with WeChat / Alipay to tip",
+  "support.wechat_label": "WeChat Pay",
+  "support.alipay_label": "Alipay",
+  "support.no_refund_line":
+    "Voluntary tip/donation. Not a purchase of goods or services — no refunds.",
   "support.no_ads_title": "No ads · No data selling · No paywall.",
   "support.no_ads_desc":
     "FilmLedger runs on support from readers like you. No pressure — the app is fully free regardless.",
@@ -218,12 +222,12 @@ const en = {
   "support.faq1_q": "Will not tipping break any feature?",
   "support.faq1_a":
     "Never. Every feature (purchases, developing, load, stats) stays fully open forever. Tipping is 100% optional.",
-  "support.faq2_q": "Is paying through Creem safe?",
+  "support.faq2_q": "Is scanning the QR code safe?",
   "support.faq2_a":
-    "Creem is a secure checkout provider. The whole payment flow happens on their official HTTPS page, we never see your card details.",
+    "Yes — the QR codes are your personal WeChat / Alipay collection codes. Payments go directly to your account. We never see your payment details.",
   "support.faq3_q": "Can I get a receipt?",
   "support.faq3_a":
-    "Creem will send a receipt to the email you enter at checkout. For custom invoices, reach out via the support link in the footer.",
+    "WeChat Pay and Alipay both keep digital payment records you can export. For a custom invoice, email the support address in the footer.",
 
   // ---- Legal pages ----
   "legal.last_updated": "Last updated",
@@ -314,22 +318,7 @@ const en = {
   // ---- Footer - extra ----
   "footer.refund": "Refund policy",
   "footer.mor_line":
-    "Payments are processed by Creem (Armitage Labs OÜ, Estonia reg. 16977866) as our merchant of record.",
-  "footer.mor_contact":
-    "For payments, invoices and refunds, Creem also acts as your data controller —",
-  "footer.mor_contact_more": "see Creem Privacy",
-
-  // ---- Support page - extra (Creem compliance) ----
-  "support.mor_notice_title": "Payment & Merchant of Record",
-  "support.mor_notice_body":
-    "Your payment is securely handled by Creem (Armitage Labs OÜ, registry 16977866, Rotermanni 14, 10111 Tallinn, Estonia). Creem acts as the merchant of record: they charge your card, issue the receipt and provide payment support.",
-  "support.no_refund_line":
-    "This is a voluntary tip/donation. Unless Creem identifies the transaction as fraudulent, no refund will be issued.",
-  "support.contact_title": "Questions?",
-  "support.contact_body":
-    "For app issues or data requests email",
-  "support.contact_creem_body":
-    "For payment / receipt issues use the support link inside your Creem receipt email.",
+    "Tips accepted via WeChat Pay / Alipay QR on the Support page. Payments go directly to the creator.",
 
   // ---- Refund Policy page ----
   "refund.title": "Refund Policy",
@@ -337,22 +326,15 @@ const en = {
     "This refund policy applies to all voluntary tips/donations made via the Support page on FilmLedger.",
   "refund.h1_nature": "1. Nature of the payment",
   "refund.p1_nature":
-    "All payments you make through the button on the Support page are voluntary tips/donations to the developer. They are not purchases of a product, subscription, unlock code, premium tier, or any digital good. FilmLedger is and will remain fully free regardless of whether you tip.",
+    "All payments you make by scanning the QR codes on the Support page are voluntary tips/donations to the developer. They are not purchases of a product, subscription, unlock code, premium tier, or any digital good. FilmLedger is and will remain fully free regardless of whether you tip.",
   "refund.h1_no_refund": "2. All tips are non-refundable",
   "refund.p2_no_refund":
-    "Because payments are voluntary donations, we do not offer refunds, exchanges, or cancellations once the payment has been processed. This policy is in place regardless of how the tip was used, or whether you continue to use FilmLedger.",
-  "refund.h1_creem_exceptions": "3. Creem-side exceptions (fraud / chargebacks)",
-  "refund.p3_creem":
-    "Notwithstanding the above, Creem, as your merchant of record, may under its own policies (e.g. fraud investigation, Buyer Terms) reverse or refund a charge. Such decisions are made by Creem alone and do not create any entitlement to a refund from us.",
-  "refund.h1_contact": "4. How to contact us",
+    "Because payments are voluntary donations, we do not offer refunds, exchanges, or cancellations once the payment has been processed. This policy applies regardless of how the tip was used, or whether you continue to use FilmLedger.",
+  "refund.h1_contact": "3. How to contact us",
   "refund.p4_contact":
-    "If you have questions about a tip you already made, want to confirm which email address it was associated with, or need help locating your receipt, email us at",
+    "If you have questions about a tip you already made, or need help locating your payment record, email us at",
   "refund.p4_contact_2":
-    "For anything related to charge status, refund eligibility on Creem's side, or duplicate charges, please open a request via the Customer Portal link in your Creem receipt email.",
-
-  // ---- Privacy - Creem MoR identity supplement ----
-  "privacy.creem_entity":
-    "Creem means Armitage Labs OÜ (registry code 16977866), registered at Rotermanni 14, 10111 Tallinn, Estonia. When you pay, Creem is the merchant of record and, for payment data, also acts as an independent data controller. See",
+    "WeChat Pay and Alipay both keep digital payment records you can look up in their apps. For any payment-specific issue, contact us directly via the support email in the footer.",
 
   // ---- Cookies - extra rows ----
   "cookies.row_auth_name": "sb-access-token / sb-refresh-token (Supabase Auth)",
@@ -367,10 +349,6 @@ const en = {
   "cookies.row_next_duration": "Session",
   "cookies.row_next_necessary": "Required",
   "cookies.row_next_desc": "Next.js framework state across page transitions. No personal info.",
-  "cookies.row_creem_name": "Creem checkout cookies (written by 3rd party)",
-  "cookies.row_creem_duration": "Controlled by Creem",
-  "cookies.row_creem_necessary": "Not written by us",
-  "cookies.row_creem_desc": "After you tap the Support button and jump to Creem.io, Creem writes payment-security cookies. We do not manage them — see Creem Privacy Policy.",
 };
 
 // ------------------------------------------------------------------
@@ -547,9 +525,12 @@ const zh = {
 
   "support.title": "请我拍点什么 🎞️",
   "support.subtitle":
-    "这个 App 完全免费。如果它帮你算清了账，杯咖啡钱、或者一卷 5294 的钱，你随意。",
-  "support.cta": "我想拍 5294 🎞️",
-  "support.cta_pending": "正在跳转 Creem 结账页…",
+    "这个 App 完全免费。如果它帮你算清了账，扫下方任意二维码就行——多少都好。",
+  "support.qr_hint": "用微信 / 支付宝扫码打赏",
+  "support.wechat_label": "微信支付",
+  "support.alipay_label": "支付宝",
+  "support.no_refund_line":
+    "本按钮的性质为自愿打赏 / 赠与，不是商品或服务交易，不支持退款。",
   "support.no_ads_title": "不做广告 · 不卖数据 · 不搞付费墙",
   "support.no_ads_desc":
     "FilmLedger 只靠打赏维持。不管你打不打赏，所有功能都能用 —— 没压力。",
@@ -557,12 +538,12 @@ const zh = {
   "support.faq1_q": "不打赏会影响功能吗？",
   "support.faq1_a":
     "完全不会。采购、冲洗、装卷、统计，所有功能永久开放。打赏 100% 自愿。",
-  "support.faq2_q": "通过 Creem 打赏安全吗？",
+  "support.faq2_q": "扫码打赏安全吗？",
   "support.faq2_a":
-    "Creem 是正规结账服务商，整个付款流程在他们官方 HTTPS 页面完成。我们看不到你的卡号。",
+    "安全。二维码就是你的个人微信/支付宝收款码，款项直接进你的账户，我们看不到你的支付信息。",
   "support.faq3_q": "付款后可以拿到凭证/收据吗？",
   "support.faq3_a":
-    "Creem 会把收据发到你填写的邮箱。如需定制发票，可通过页脚的支持邮箱联系。",
+    "微信和支付宝都会保留电子支付记录，可自行导出。如需发票，请通过页脚的支持邮箱联系。",
 
   "legal.last_updated": "最后更新：",
   "privacy.title": "隐私政策",
@@ -650,21 +631,7 @@ const zh = {
   // ---- Footer - extra ----
   "footer.refund": "退款政策",
   "footer.mor_line":
-    "打赏款项由 Creem（爱沙尼亚注册主体 Armitage Labs OÜ，注册号 16977866）作为我方 Merchant of Record（收款与开票主体）代为处理。",
-  "footer.mor_contact":
-    "关于支付、发票、退款事宜，Creem 同时也是你支付数据的独立数据控制者——",
-  "footer.mor_contact_more": "详见 Creem 隐私政策",
-
-  // ---- Support page - extra (Creem compliance) ----
-  "support.mor_notice_title": "支付处理与收款主体说明",
-  "support.mor_notice_body":
-    "本次打赏的支付流程完全在 Creem 官方 HTTPS 页面执行，Creem 为爱沙尼亚 Armitage Labs OÜ（注册号 16977866，注册地址 Rotermanni 14, 10111 Tallinn, Estonia）。Creem 将直接向你收取款项、开具电子收据并提供支付相关的客服支持。",
-  "support.no_refund_line":
-    "本按钮的性质为自愿打赏 / 赠与。除非 Creem 判定为欺诈交易，否则不支持退款、撤销或取消。",
-  "support.contact_title": "联系与支持",
-  "support.contact_body": "与本工具功能、数据权利、账户问题相关的疑问，请邮件联系：",
-  "support.contact_creem_body":
-    "关于支付状态、电子收据、扣款异常等问题，请直接使用 Creem 收据邮件中的客服入口联系 Creem。",
+    "「支持一下」页面提供微信 / 支付宝收款二维码，款项直接到作者账户，无中间方。",
 
   // ---- Refund Policy page ----
   "refund.title": "退款政策",
@@ -672,22 +639,15 @@ const zh = {
     "本退款政策适用于你通过「支持一下」页面向 FilmLedger 支付的所有自愿打赏 / 赠与款项。",
   "refund.h1_nature": "一、款项性质",
   "refund.p1_nature":
-    "你通过「支持一下」页面的按钮跳转至 Creem 完成的支付，全部属于对开发者的自愿打赏 / 赠与行为，而非购买产品、订阅、解锁码、付费会员或任何数字商品。无论是否打赏，FilmLedger 所有核心功能对所有用户永久免费、完整开放。",
+    "你通过「支持一下」页面扫码完成的支付，全部属于对开发者的自愿打赏 / 赠与行为，而非购买产品、订阅、解锁码、付费会员或任何数字商品。无论是否打赏，FilmLedger 所有核心功能对所有用户永久免费、完整开放。",
   "refund.h1_no_refund": "二、打赏不退款原则",
   "refund.p2_no_refund":
     "鉴于款项性质为赠与，支付一旦实际处理完成，我们不提供退款、兑换或取消，也不以任何形式退货或折抵其他权益，无论你之后是否继续使用本工具。",
-  "refund.h1_creem_exceptions": "三、Creem 作为收款主体的例外（风控 / 盗刷 / 争议）",
-  "refund.p3_creem":
-    "尽管有前述不退款原则，Creem 作为 Merchant of Record（开票与收款主体）仍可依据其《买家服务条款》及反欺诈政策，对可疑交易、盗刷、争议退款等情形，单方面做出退款或冲正决定。此等决定由 Creem 独立做出，不视为我们对你的退款承诺。",
-  "refund.h1_contact": "四、如何联系",
+  "refund.h1_contact": "三、如何联系",
   "refund.p4_contact":
-    "若你已经完成打赏，希望核对支付所关联的邮箱、确认是否成功、找回收据邮件，或对本政策有任何疑问，请通过下方邮箱与我们取得联系：",
+    "若你已经完成打赏，希望核对是否成功，或对本政策有任何疑问，请通过下方邮箱与我们取得联系：",
   "refund.p4_contact_2":
-    "与扣款状态、Creem 端退款资格、重复扣款等支付本身相关的事项，请使用 Creem 收据邮件内的 Customer Portal 链接直接向 Creem 发起工单。",
-
-  // ---- Privacy - Creem MoR identity supplement ----
-  "privacy.creem_entity":
-    "此处的 Creem 指在爱沙尼亚注册的 Armitage Labs OÜ（注册号 16977866，注册地址 Rotermanni 14, 10111 Tallinn, Estonia）。当你进行打赏时，Creem 是与你签订付款合同、开具收据的 Merchant of Record（法律上的卖方），同时也是你支付相关数据的独立数据控制者。请参考",
+    "微信和支付宝都会在 App 内保留电子支付记录，可自行查询。任何支付相关的疑问请直接通过页脚的支持邮箱联系我们。",
 
   // ---- Cookies - extra rows ----
   "cookies.row_auth_name": "sb-access-token / sb-refresh-token（Supabase Auth）",
@@ -702,10 +662,6 @@ const zh = {
   "cookies.row_next_duration": "会话级",
   "cookies.row_next_necessary": "✅ 必要",
   "cookies.row_next_desc": "Next.js 框架用于维护页面切换时的表单状态，不包含个人信息。",
-  "cookies.row_creem_name": "Creem 支付页 Cookie（跳转第三方后写入）",
-  "cookies.row_creem_duration": "由 Creem 控制",
-  "cookies.row_creem_necessary": "⚠️ 非本站写入",
-  "cookies.row_creem_desc": "当你在「支持一下」页面点击跳转按钮到 Creem.io 后，Creem 会写入支付安全相关的 Cookie。我们不管理这些 Cookie，详见 Creem 隐私政策。",
 } as const;
 
 export const messages: Record<Locale, Record<string, string>> = { en, zh };

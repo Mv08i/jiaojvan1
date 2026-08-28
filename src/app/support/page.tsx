@@ -1,13 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import { useSettings } from "@/lib/i18n/provider";
 
 const supportEmail = "lz7729889@gmail.com";
-const creemPrivacyHref = "https://www.creem.io/privacy";
 
 export default function SupportPage() {
   const { t } = useSettings();
-  const creemLink = process.env.NEXT_PUBLIC_CREEM_TIP_CUSTOM;
 
   return (
     <main className="mx-auto max-w-2xl px-4 py-12 sm:py-16">
@@ -24,60 +23,38 @@ export default function SupportPage() {
         </p>
       </div>
 
-      {/* 打赏按钮 */}
-      <div className="mt-10 flex flex-col items-center gap-4">
-        {creemLink ? (
-          <a
-            href={creemLink}
-            target="_blank"
-            rel="noreferrer"
-            className="group btn-kodak px-10 py-5 text-base shadow-lg"
-          >
-            <span className="text-2xl">🎞️</span>
-            <span>{t("support.cta")}</span>
-            <span className="transition-transform group-hover:translate-x-1">→</span>
-          </a>
-        ) : (
-          <span className="inline-flex cursor-not-allowed items-center gap-3 rounded-2xl bg-k-paper-line px-8 py-4 text-base font-semibold text-k-film-edge/60 dark:bg-k-film-edge/40 dark:text-k-yellow/50 border border-dashed border-k-gold/50">
-            <span className="text-xl">🎞️</span>
-            <span>{t("support.cta_pending")}</span>
-          </span>
-        )}
-
-        {/* ---- Creem 合规：不退款短说明 ---- */}
-        <p className="max-w-md text-center text-xs text-k-red dark:text-k-red-dark">
-          {t("support.no_refund_line")}
+      {/* 二维码卡片区 */}
+      <div className="mt-10">
+        <p className="mb-4 text-center text-xs text-k-film-edge/60 dark:text-k-film-edge/50">
+          {t("support.qr_hint")}
         </p>
 
-        {/* ---- Creem 合规：Merchant of Record 身份披露块 ---- */}
-        <aside
-          aria-label={t("support.mor_notice_title")}
-          className="mt-2 w-full rounded-xl border border-k-gold/50 bg-k-yellow/15 p-4 text-xs leading-6 text-k-film-edge/80 shadow-[0_1px_0_0_rgba(200,155,60,0.15)] dark:border-k-gold/40 dark:bg-k-gold/10 dark:text-k-film-edge/60"
-        >
-          <p className="mb-1 text-sm font-semibold text-k-film-edge dark:text-k-yellow/90">
-            {t("support.mor_notice_title")}
-          </p>
-          <p className="mb-2">{t("support.mor_notice_body")}</p>
-          <p className="text-k-film-edge/60 dark:text-k-film-edge/40">
-            {t("footer.mor_contact")}{" "}
-            <a
-              className="underline-offset-2 hover:text-k-red hover:underline dark:hover:text-k-red-dark"
-              href={creemPrivacyHref}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {t("footer.mor_contact_more")}
-            </a>
-            。
-          </p>
-        </aside>
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+          {/* 微信收款码 */}
+          <QRCard
+            label={t("support.wechat_label")}
+            icon="💬"
+            color="#07C160"
+            alt="WeChat Pay QR"
+            src="/qrcodes/wechat-pay.svg"
+          />
+          {/* 支付宝收款码 */}
+          <QRCard
+            label={t("support.alipay_label")}
+            icon="💰"
+            color="#1677FF"
+            alt="Alipay QR"
+            src="/qrcodes/alipay.svg"
+          />
+        </div>
 
-        <p className="text-xs text-k-film-edge/40 dark:text-k-film-edge/55">
-          {t("settings.currency_hint")}
+        {/* 不退款短说明 */}
+        <p className="mx-auto mt-6 max-w-md text-center text-xs text-k-red dark:text-k-red-dark">
+          {t("support.no_refund_line")}
         </p>
       </div>
 
-      {/* ---- Creem 合规：站内支持邮箱 ---- */}
+      {/* 支持邮箱 */}
       <section className="mt-12 rounded-xl border border-k-paper-line bg-k-cream-2 p-5 dark:border-k-paper-line dark:bg-k-film-edge/60">
         <h2 className="text-sm font-semibold text-k-film-edge dark:text-k-yellow/90">
           {t("support.contact_title")}
@@ -94,7 +71,6 @@ export default function SupportPage() {
               </code>
             </a>
           </li>
-          <li>{t("support.contact_creem_body")}</li>
         </ul>
       </section>
 
@@ -115,22 +91,67 @@ export default function SupportPage() {
         </h2>
         <ul className="mt-4 space-y-4 text-sm leading-7 text-k-film-edge/70 dark:text-k-film-edge/40">
           <li>
-            <b className="text-k-film-edge dark:text-k-yellow/90">{t("support.faq1_q")}</b>
+            <b className="text-k-film-edge dark:text-k-yellow/90">
+              {t("support.faq1_q")}
+            </b>
             <br />
             {t("support.faq1_a")}
           </li>
           <li>
-            <b className="text-k-film-edge dark:text-k-yellow/90">{t("support.faq2_q")}</b>
+            <b className="text-k-film-edge dark:text-k-yellow/90">
+              {t("support.faq2_q")}
+            </b>
             <br />
             {t("support.faq2_a")}
           </li>
           <li>
-            <b className="text-k-film-edge dark:text-k-yellow/90">{t("support.faq3_q")}</b>
+            <b className="text-k-film-edge dark:text-k-yellow/90">
+              {t("support.faq3_q")}
+            </b>
             <br />
             {t("support.faq3_a")}
           </li>
         </ul>
       </div>
     </main>
+  );
+}
+
+function QRCard({
+  label,
+  icon,
+  color,
+  alt,
+  src,
+}: {
+  label: string;
+  icon: string;
+  color: string;
+  alt: string;
+  src: string;
+}) {
+  return (
+    <div
+      className="film-frame group"
+      style={{ ["--brand-color" as string]: color }}
+    >
+      <div className="film-frame-inner flex flex-col items-center gap-3 px-4 py-5">
+        <span
+          className="film-frame-number"
+          style={{ color }}
+        >
+          {icon} {label}
+        </span>
+        <div className="relative aspect-square w-36 overflow-hidden rounded-lg border border-k-gold/30 bg-white shadow-sm">
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            sizes="144px"
+            className="object-contain"
+          />
+        </div>
+      </div>
+    </div>
   );
 }

@@ -45,15 +45,6 @@ export default function RefundsPage() {
       <Section title="3. —">
         <p>
           <span className="font-semibold text-k-film-edge dark:text-k-yellow/90">
-            {t("refund.h1_creem_exceptions").replace(/^[\d一二三四五六七八九十]+[．.、\s]*/, "")}
-          </span>
-        </p>
-        <p>{t("refund.p3_creem")}</p>
-      </Section>
-
-      <Section title="4. —">
-        <p>
-          <span className="font-semibold text-k-film-edge dark:text-k-yellow/90">
             {t("refund.h1_contact").replace(/^[\d一二三四五六七八九十]+[．.、\s]*/, "")}
           </span>
         </p>

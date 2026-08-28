@@ -46,7 +46,6 @@ function BodyShell({
 }) {
   const { t } = useSettings();
   const supportEmail = "lz7729889@gmail.com";
-  const creemPrivacyHref = "https://www.creem.io/privacy";
 
   return (
     <>
@@ -121,20 +120,12 @@ function BodyShell({
             </nav>
           </div>
 
-          {/* 第二行：Creem MoR 支付披露（合规硬要求） */}
+          {/* 第二行：打赏说明 */}
           <p className="w-full text-[11px] leading-5 text-k-film-edge/45 dark:text-k-film-edge/70 text-center sm:text-left">
-            🔒 {t("footer.mor_line")}{" "}
-            <a
-              href={creemPrivacyHref}
-              target="_blank"
-              rel="noreferrer"
-              className="underline-offset-2 hover:text-k-red hover:underline dark:hover:text-k-red-dark"
-            >
-              {t("footer.mor_contact")} {t("footer.mor_contact_more")}
-            </a>
+            {t("footer.mor_line")}
           </p>
 
-          {/* 第三行：支持邮箱（Creem 审核要求「网站上可见的可联系客服邮箱」） */}
+          {/* 第三行：支持邮箱 */}
           <p className="w-full text-[11px] leading-5 text-k-film-edge/45 dark:text-k-film-edge/70 text-center sm:text-left">
             📮 {t("legal.contact_email")}：
             <a

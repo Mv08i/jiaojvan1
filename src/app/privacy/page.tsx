@@ -77,30 +77,14 @@ export default function PrivacyPage() {
         </p>
       </Section>
 
-      <Section title="5. 第三方服务（打赏 & 支付）">
+      <Section title="5. 第三方服务（打赏）">
         <p>
-          <CreemMoREntityParagraph />
-          <a
-            href="https://www.creem.io/privacy"
-            target="_blank"
-            rel="noreferrer"
-            className="text-k-red underline-offset-2 hover:underline dark:text-k-red-dark"
-          >
-            Creem 隐私政策
-          </a>
-          。
+          FilmLedger 接受<b>微信支付 / 支付宝</b>打赏。打赏款项通过收款二维码直接进入开发者个人账户，
+          支付过程<b>完全在微信 / 支付宝 App 内完成</b>，本工具<b>不接触、不存储、不可见</b>你的支付信息。
         </p>
         <p className="mt-3">
-          当你点击「我想要拍5294！！」等按钮时：
+          如果你不打赏，本工具的所有功能（采购、冲洗、装卷、统计等）对所有用户永久免费开放，不受任何限制。
         </p>
-        <ul className="space-y-3 pl-5 list-disc mt-2">
-          <li>页面会跳转到 Creem 官方域名（<code className="text-[12px] rounded bg-k-yellow/15 px-1 ring-1 ring-k-gold/30 dark:bg-k-gold/10 dark:ring-k-yellow/30">creem.io</code>）的 HTTPS 安全页面；</li>
-          <li>
-            支付过程中你填写的<b>银行卡号 / 支付宝账号 / 邮箱 / 账单地址</b>等所有支付信息，
-            <b>均由 Creem 直接采集和处理</b>，本工具<b>不接触、不存储、不可见</b>；
-          </li>
-          <li>Creem 会按其隐私政策向你发送电子收据邮件。</li>
-        </ul>
       </Section>
 
       <Section title="6. 数据共享与披露">
@@ -174,15 +158,5 @@ function Section({ title, children }: { title: string; children: React.ReactNode
       <h2 className="text-base font-semibold text-k-film-edge dark:text-k-yellow">{title}</h2>
       <div className="space-y-3">{children}</div>
     </section>
-  );
-}
-
-// Creem MoR 实体披露：中英双语对照（Creem 审核要求明确披露注册实体）
-function CreemMoREntityParagraph() {
-  const { t } = useSettings();
-  return (
-    <span>
-      {t("privacy.creem_entity")}{" "}
-    </span>
   );
 }

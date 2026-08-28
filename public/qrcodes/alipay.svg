@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="16" fill="#1677FF"/>
+  <rect x="20" y="20" width="160" height="160" rx="10" fill="#ffffff"/>
+  <!-- 支付宝 A 字 -->
+  <path d="M95 72 l-14 40 h28 z" fill="#1677FF" opacity="0.25"/>
+  <rect x="75" y="108" width="50" height="10" rx="5" fill="#1677FF"/>
+  <path d="M100 118 l-26 34 h52 z" fill="#1677FF" opacity="0.4"/>
+  <!-- 占位文字 -->
+  <text x="100" y="165" font-family="Arial,sans-serif" font-size="11" fill="#888" text-anchor="middle">Alipay</text>
+  <text x="100" y="180" font-family="Arial,sans-serif" font-size="9" fill="#bbb" text-anchor="middle">请放真实收款码</text>
+</svg>
