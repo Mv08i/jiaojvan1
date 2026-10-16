@@ -10,7 +10,7 @@ export default function LoginPage({ redirect }: { redirect?: string }) {
       <h1 className="text-2xl font-bold tracking-tight text-k-film-edge dark:text-k-yellow">
         {t("login.title")}
       </h1>
-      <p className="mt-2 text-center text-sm text-k-film-edge/55 dark:text-k-film-edge/40">
+      <p className="mt-2 text-center text-sm text-k-film-edge/55 dark:text-k-ink/70">
         {t("login.subtitle")}
       </p>
       <LoginForm redirect={redirect} />

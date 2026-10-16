@@ -35,10 +35,10 @@ export function StatsView(props: Props) {
     return (
       <div className="mx-auto max-w-5xl px-4 py-8">
         <h1 className="text-2xl font-bold tracking-tight">{t("stats.title")}</h1>
-        <p className="mt-1 text-sm text-k-film-edge/55 dark:text-k-film-edge/40">
+        <p className="mt-1 text-sm text-k-film-edge/55 dark:text-k-ink/70">
           {t("stats.subtitle")}
         </p>
-        <div className="mt-6 rounded-lg border border-dashed border-k-paper-line p-6 text-center text-sm text-k-film-edge/40 dark:border-k-paper-line/70 dark:text-k-film-edge/55">
+        <div className="mt-6 rounded-lg border border-dashed border-k-paper-line p-6 text-center text-sm text-k-film-edge/40 dark:border-k-paper-line/70 dark:text-k-ink/75">
           {t("common.please_login")}
         </div>
       </div>
@@ -51,7 +51,7 @@ export function StatsView(props: Props) {
     <div className="mx-auto max-w-5xl space-y-6 px-4 py-8">
       <div>
         <h1 className="text-2xl font-bold tracking-tight">{t("stats.title")}</h1>
-        <p className="mt-1 text-sm text-k-film-edge/55 dark:text-k-film-edge/40">
+        <p className="mt-1 text-sm text-k-film-edge/55 dark:text-k-ink/70">
           {t("stats.subtitle")}
         </p>
       </div>
@@ -74,7 +74,7 @@ export function StatsView(props: Props) {
             <h2 className="mb-3 text-sm font-semibold text-k-film-edge/80 dark:text-k-yellow/90">
               {t("stats.brand_table_title")}
             </h2>
-            <div className="overflow-hidden rounded-lg border border-k-paper-line dark:border-k-paper-line">
+            <div className="overflow-x-auto rounded-lg border border-k-paper-line dark:border-k-paper-line">
               <table className="w-full text-left text-sm">
                 <thead className="bg-k-yellow/15 text-xs uppercase text-k-film-edge dark:bg-k-film dark:text-k-yellow">
                   <tr>
@@ -107,7 +107,7 @@ export function StatsView(props: Props) {
           </div>
         </>
       ) : (
-        <div className="rounded-lg border border-dashed border-k-paper-line p-12 text-center text-sm text-k-film-edge/40 dark:border-k-paper-line/70 dark:text-k-film-edge/55">
+        <div className="rounded-lg border border-dashed border-k-paper-line p-12 text-center text-sm text-k-film-edge/40 dark:border-k-paper-line/70 dark:text-k-ink/75">
           {t("purchases.empty")}
           <br />
           <span className="text-xs">{t("purchases.empty_hint")}</span>
@@ -120,7 +120,7 @@ export function StatsView(props: Props) {
 function KPI({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-lg border border-k-paper-line bg-k-cream-2 p-4 dark:border-k-paper-line dark:bg-k-film-edge/60">
-      <p className="text-xs text-k-film-edge/55 dark:text-k-film-edge/40">{label}</p>
+      <p className="text-xs text-k-film-edge/55 dark:text-k-ink/70">{label}</p>
       <p className="mt-1 text-xl font-semibold tabular-nums text-k-film-edge dark:text-k-yellow">
         {value}
       </p>

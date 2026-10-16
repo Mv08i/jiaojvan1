@@ -18,14 +18,14 @@ export default function SupportPage() {
         <h1 className="text-2xl font-bold text-k-film-edge dark:text-k-yellow sm:text-3xl">
           {t("support.title")}
         </h1>
-        <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-k-film-edge/70 dark:text-k-film-edge/40">
+        <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-k-film-edge/70 dark:text-k-ink/70">
           {t("support.subtitle")}
         </p>
       </div>
 
       {/* 二维码卡片区 */}
       <div className="mt-10">
-        <p className="mb-4 text-center text-xs text-k-film-edge/60 dark:text-k-film-edge/50">
+        <p className="mb-4 text-center text-xs text-k-film-edge/60 dark:text-k-ink/75">
           {t("support.qr_hint")}
         </p>
 
@@ -59,7 +59,7 @@ export default function SupportPage() {
         <h2 className="text-sm font-semibold text-k-film-edge dark:text-k-yellow/90">
           {t("support.contact_title")}
         </h2>
-        <ul className="mt-3 space-y-2 text-xs leading-6 text-k-film-edge/70 dark:text-k-film-edge/40">
+        <ul className="mt-3 space-y-2 text-xs leading-6 text-k-film-edge/70 dark:text-k-ink/70">
           <li>
             {t("support.contact_body")}{" "}
             <a
@@ -79,7 +79,7 @@ export default function SupportPage() {
         <h2 className="text-base font-semibold text-k-film-edge dark:text-k-yellow/90">
           {t("support.no_ads_title")}
         </h2>
-        <p className="mx-auto max-w-lg text-xs leading-6 text-k-film-edge/60 dark:text-k-film-edge/55">
+        <p className="mx-auto max-w-lg text-xs leading-6 text-k-film-edge/60 dark:text-k-ink/75">
           {t("support.no_ads_desc")}
         </p>
       </div>
@@ -89,7 +89,7 @@ export default function SupportPage() {
         <h2 className="text-sm font-semibold text-k-film-edge dark:text-k-yellow/90">
           {t("support.faq_title")}
         </h2>
-        <ul className="mt-4 space-y-4 text-sm leading-7 text-k-film-edge/70 dark:text-k-film-edge/40">
+        <ul className="mt-4 space-y-4 text-sm leading-7 text-k-film-edge/70 dark:text-k-ink/70">
           <li>
             <b className="text-k-film-edge dark:text-k-yellow/90">
               {t("support.faq1_q")}

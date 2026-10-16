@@ -28,7 +28,7 @@ export function LoginForm({ redirect }: { redirect?: string }) {
           className={`rounded px-3 py-1.5 transition-colors ${
             mode === "signin"
               ? "bg-k-cream-2 text-k-film-edge shadow dark:bg-k-film-edge dark:text-k-yellow rounded-sm"
-              : "text-k-film-edge/55 hover:text-k-film-edge/80 dark:text-k-film-edge/40 dark:hover:text-k-yellow"
+              : "text-k-film-edge/55 hover:text-k-film-edge/80 dark:text-k-ink/70 dark:hover:text-k-yellow"
           }`}
         >
           {t("login.login")}
@@ -39,7 +39,7 @@ export function LoginForm({ redirect }: { redirect?: string }) {
           className={`rounded px-3 py-1.5 transition-colors ${
             mode === "signup"
               ? "bg-k-cream-2 text-k-film-edge shadow dark:bg-k-film-edge dark:text-k-yellow rounded-sm"
-              : "text-k-film-edge/55 hover:text-k-film-edge/80 dark:text-k-film-edge/40 dark:hover:text-k-yellow"
+              : "text-k-film-edge/55 hover:text-k-film-edge/80 dark:text-k-ink/70 dark:hover:text-k-yellow"
           }`}
         >
           {t("login.register")}
@@ -69,7 +69,7 @@ export function LoginForm({ redirect }: { redirect?: string }) {
           >
             {signInPending ? t("common.pending_dots") : t("login.login")}
           </button>
-          <p className="text-center text-xs text-k-film-edge/40">
+          <p className="text-center text-xs text-k-film-edge/40 dark:text-k-ink/70">
             {mode === "signin"
               ? "Don't have an account?"
               : null}
@@ -110,7 +110,7 @@ export function LoginForm({ redirect }: { redirect?: string }) {
           >
             {signUpPending ? t("common.pending_dots") : t("login.register")}
           </button>
-          <p className="text-center text-xs text-k-film-edge/40">
+          <p className="text-center text-xs text-k-film-edge/40 dark:text-k-ink/70">
             Already have an account?
             <button
               type="button"
@@ -141,7 +141,7 @@ function Field({
 }) {
   return (
     <div>
-      <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-film-edge/40">
+      <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-ink/70">
         {label} {required && <span className="text-red-500">*</span>}
       </label>
       <input

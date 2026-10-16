@@ -12,7 +12,7 @@ export default function RefundsPage() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-12 sm:py-16">
       <div className="mb-8">
-        <p className="text-xs text-k-film-edge/55 dark:text-k-film-edge/55">
+        <p className="text-xs text-k-film-edge/55 dark:text-k-ink/75">
           {t("legal.last_updated")} {lastUpdated}
         </p>
         <h1 className="mt-2 text-2xl font-bold text-k-film-edge dark:text-k-yellow sm:text-3xl">
@@ -63,8 +63,8 @@ export default function RefundsPage() {
         <p>{t("refund.p4_contact_2")}</p>
       </Section>
 
-      <div className="mt-12 text-center text-xs text-k-film-edge/40 dark:text-k-film-edge/70">
-        <Link href="/" className="hover:text-k-film-edge/70 dark:hover:text-k-film-edge/40">
+      <div className="mt-12 text-center text-xs text-k-film-edge/40 dark:text-k-ink/85">
+        <Link href="/" className="hover:text-k-film-edge/70 dark:hover:text-k-ink/85">
           {t("legal.back_home")}
         </Link>
       </div>

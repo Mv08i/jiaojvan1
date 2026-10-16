@@ -19,7 +19,7 @@ export function LoadForm({
 
   if (purchases.length === 0) {
     return (
-      <p className="text-xs text-k-film-edge/40 dark:text-k-film-edge/55">
+      <p className="text-xs text-k-film-edge/40 dark:text-k-ink/75">
         {t("load.no_purchases")}
         <a href="/purchases" className="underline">{t("load.no_purchases_link")}</a>
         {t("load.no_purchases_after")}
@@ -31,7 +31,7 @@ export function LoadForm({
     <form action={loadFilm} className="flex flex-wrap items-end gap-2">
       <input type="hidden" name="camera_id" value={cameraId} />
       <div className="flex-1 min-w-[180px]">
-        <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-film-edge/40">
+        <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-ink/70">
           {t("load.select_purchase_label")}
         </label>
         <select
@@ -51,7 +51,7 @@ export function LoadForm({
         </select>
       </div>
       <div>
-        <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-film-edge/40">
+        <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-ink/70">
           {t("load.load_date")}
         </label>
         <input
@@ -79,7 +79,7 @@ export function UnloadForm({
     <form action={unloadFilm} className="flex flex-wrap items-end gap-2">
       <input type="hidden" name="camera_id" value={cameraId} />
       <div>
-        <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-film-edge/40">
+        <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-ink/70">
           {t("load.frames_shot_label")}
         </label>
         <input

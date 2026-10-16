@@ -37,12 +37,12 @@ export default function Home() {
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-k-gold">
                 {t("home.tagline_barrel")}
               </p>
-              <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl text-k-film-edge">
+              <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl text-k-film-edge dark:text-k-ink">
                 {t("home.h1_line1")}
                 <br />
                 {t("home.h1_line2")}
               </h1>
-              <p className="mx-auto mt-6 max-w-md text-base leading-8 text-k-film-edge/80">
+              <p className="mx-auto mt-6 max-w-md text-base leading-8 text-k-film-edge/80 dark:text-k-ink/90">
                 {t("home.hero_desc")}
               </p>
 
@@ -55,7 +55,7 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="mt-6 flex justify-center gap-4 font-mono text-[10px] tracking-widest text-k-film-edge/55">
+              <div className="mt-6 flex flex-wrap justify-center gap-x-4 gap-y-1 font-mono text-[10px] tracking-widest text-k-film-edge/55 dark:text-k-ink/75">
                 <span>{t("home.meta_dx")}</span>
                 <span>·</span>
                 <span>{t("home.meta_lat")}</span>
@@ -68,7 +68,7 @@ export default function Home() {
       </div>
 
       {/* 三张 Feature 卡：像相册里的三张底片小条 */}
-      <div className="mt-20 grid grid-cols-1 gap-6 sm:grid-cols-3">
+      <div className="mt-12 grid grid-cols-1 gap-6 sm:mt-20 sm:grid-cols-3">
         <FeatureCard
           tag={t("home.feature1_tag")}
           title={t("home.feature1_title")}
@@ -102,10 +102,10 @@ function FeatureCard({
     <div className="relative film-frame">
       <div className="film-frame-inner scanlines px-4 py-5">
         <span className="film-frame-number">{tag}</span>
-        <h3 className="mt-2 text-sm font-semibold tracking-wide text-k-film-edge">
+        <h3 className="mt-2 text-sm font-semibold tracking-wide text-k-film-edge dark:text-k-ink">
           {title}
         </h3>
-        <p className="mt-2 text-xs leading-6 text-k-film-edge/70 dark:text-k-film-edge/60">
+        <p className="mt-2 text-xs leading-6 text-k-film-edge/70 dark:text-k-ink/80">
           {desc}
         </p>
       </div>

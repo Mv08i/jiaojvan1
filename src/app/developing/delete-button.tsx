@@ -18,7 +18,7 @@ function SubmitButton() {
     <button
       type="submit"
       disabled={pending}
-      className="text-xs text-k-film-edge/40 transition-colors hover:text-red-500 disabled:opacity-50"
+      className="text-xs text-k-film-edge/40 transition-colors hover:text-red-500 disabled:opacity-50 dark:text-k-ink/70"
     >
       {pending ? "删除中…" : "删除"}
     </button>

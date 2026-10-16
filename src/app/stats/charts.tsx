@@ -74,7 +74,7 @@ export function StatsCharts({
         <h2 className="mb-1 text-sm font-semibold text-k-film-edge/80 dark:text-k-yellow/90">
           {t("stats.yearly_chart")}
         </h2>
-        <p className="mb-4 text-xs text-k-film-edge/55 dark:text-k-film-edge/40">
+        <p className="mb-4 text-xs text-k-film-edge/55 dark:text-k-ink/70">
           {t("stats.yearly_chart_hint")}
         </p>
         <div style={{ width: "100%", height: 260 }}>
@@ -125,7 +125,7 @@ export function StatsCharts({
         <h2 className="mb-1 text-sm font-semibold text-k-film-edge/80 dark:text-k-yellow/90">
           {t("stats.brand_chart")}
         </h2>
-        <p className="mb-4 text-xs text-k-film-edge/55 dark:text-k-film-edge/40">
+        <p className="mb-4 text-xs text-k-film-edge/55 dark:text-k-ink/70">
           {t("stats.brand_chart_hint")}
         </p>
         <div style={{ width: "100%", height: 260 }}>

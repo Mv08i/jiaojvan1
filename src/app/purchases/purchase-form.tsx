@@ -46,7 +46,7 @@ export function PurchaseForm({ filmStocks }: { filmStocks: FilmStock[] }) {
           className={`rounded px-3 py-1.5 transition-colors ${
             mode === "select"
               ? "bg-k-cream-2 text-k-film-edge shadow dark:bg-k-film-edge dark:text-k-yellow rounded-sm"
-              : "text-k-film-edge/55 hover:text-k-film-edge/80 dark:text-k-film-edge/40 dark:hover:text-k-yellow"
+              : "text-k-film-edge/55 hover:text-k-film-edge/80 dark:text-k-ink/70 dark:hover:text-k-yellow"
           }`}
         >
           {t("purchases.mode_preset")}
@@ -57,7 +57,7 @@ export function PurchaseForm({ filmStocks }: { filmStocks: FilmStock[] }) {
           className={`rounded px-3 py-1.5 transition-colors ${
             mode === "custom"
               ? "bg-k-cream-2 text-k-film-edge shadow dark:bg-k-film-edge dark:text-k-yellow rounded-sm"
-              : "text-k-film-edge/55 hover:text-k-film-edge/80 dark:text-k-film-edge/40 dark:hover:text-k-yellow"
+              : "text-k-film-edge/55 hover:text-k-film-edge/80 dark:text-k-ink/70 dark:hover:text-k-yellow"
           }`}
         >
           {t("purchases.mode_custom")}
@@ -66,7 +66,7 @@ export function PurchaseForm({ filmStocks }: { filmStocks: FilmStock[] }) {
 
       {mode === "select" && (
         <div>
-          <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-film-edge/40">
+          <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-ink/70">
             {t("purchases.name")} <span className="text-red-500">*</span>
           </label>
           <select
@@ -99,7 +99,7 @@ export function PurchaseForm({ filmStocks }: { filmStocks: FilmStock[] }) {
             inputMode="numeric"
           />
           <div>
-            <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-film-edge/40">
+            <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-ink/70">
               <span className="text-red-500">* </span>Process
             </label>
             <select
@@ -113,7 +113,7 @@ export function PurchaseForm({ filmStocks }: { filmStocks: FilmStock[] }) {
             </select>
           </div>
           <div>
-            <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-film-edge/40">
+            <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-ink/70">
               {t("purchases.format")} <span className="text-red-500">*</span>
             </label>
             <select
@@ -132,7 +132,7 @@ export function PurchaseForm({ filmStocks }: { filmStocks: FilmStock[] }) {
       {/* 通用字段 */}
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <div>
-          <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-film-edge/40">
+          <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-ink/70">
             {t("purchases.purchase_date")} <span className="text-red-500">*</span>
           </label>
           <input
@@ -144,7 +144,7 @@ export function PurchaseForm({ filmStocks }: { filmStocks: FilmStock[] }) {
           />
         </div>
         <div>
-          <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-film-edge/40">
+          <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-ink/70">
             {t("purchases.quantity")} <span className="text-red-500">*</span>
           </label>
           <input
@@ -157,7 +157,7 @@ export function PurchaseForm({ filmStocks }: { filmStocks: FilmStock[] }) {
           />
         </div>
         <div>
-          <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-film-edge/40">
+          <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-ink/70">
             {t("purchases.unit_price")} <span className="text-red-500">*</span>
           </label>
           <input
@@ -172,7 +172,7 @@ export function PurchaseForm({ filmStocks }: { filmStocks: FilmStock[] }) {
           />
         </div>
         <div>
-          <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-film-edge/40">
+          <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-ink/70">
             {t("purchases.vendor")}
           </label>
           <input
@@ -185,7 +185,7 @@ export function PurchaseForm({ filmStocks }: { filmStocks: FilmStock[] }) {
       </div>
 
       <div>
-        <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-film-edge/40">
+        <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-ink/70">
           {t("purchases.notes")}
         </label>
         <input
@@ -222,7 +222,7 @@ function Field({
 }) {
   return (
     <div>
-      <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-film-edge/40">
+      <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-ink/70">
         {label} <span className="text-red-500">*</span>
       </label>
       <input
@@ -270,7 +270,7 @@ function CustomForm() {
         <Field label={t("purchases.name")} name="name" placeholder="Portra 400" />
         <Field label={t("purchases.iso")} name="iso" type="number" placeholder="400" inputMode="numeric" />
         <div>
-          <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-film-edge/40">
+          <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-ink/70">
             Process <span className="text-red-500">*</span>
           </label>
           <select
@@ -284,7 +284,7 @@ function CustomForm() {
           </select>
         </div>
         <div>
-          <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-film-edge/40">
+          <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-ink/70">
             {t("purchases.format")} <span className="text-red-500">*</span>
           </label>
           <select
@@ -301,25 +301,25 @@ function CustomForm() {
 
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <div>
-          <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-film-edge/40">
+          <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-ink/70">
             {t("purchases.purchase_date")} <span className="text-red-500">*</span>
           </label>
           <input type="date" name="purchase_date" required defaultValue={today} className="mt-1 w-full rounded-md border border-k-paper-line bg-k-cream-2 px-3 py-2 text-sm shadow-inner shadow-k-gold/5 dark:border-k-paper-line dark:bg-k-film-edge/40" />
         </div>
         <div>
-          <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-film-edge/40">
+          <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-ink/70">
             {t("purchases.quantity")} <span className="text-red-500">*</span>
           </label>
           <input type="number" name="quantity" required min={1} defaultValue={1} className="mt-1 w-full rounded-md border border-k-paper-line bg-k-cream-2 px-3 py-2 text-sm shadow-inner shadow-k-gold/5 dark:border-k-paper-line dark:bg-k-film-edge/40" />
         </div>
         <div>
-          <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-film-edge/40">
+          <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-ink/70">
             {t("purchases.unit_price")} <span className="text-red-500">*</span>
           </label>
           <input type="number" name="unit_price" required min={0} step={0.01} inputMode="decimal" placeholder="19.90" className="mt-1 w-full rounded-md border border-k-paper-line bg-k-cream-2 px-3 py-2 text-sm shadow-inner shadow-k-gold/5 dark:border-k-paper-line dark:bg-k-film-edge/40" />
         </div>
         <div>
-          <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-film-edge/40">
+          <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-ink/70">
             {t("purchases.vendor")}
           </label>
           <input type="text" name="vendor" placeholder={t("purchases.vendor_placeholder")} className="mt-1 w-full rounded-md border border-k-paper-line bg-k-cream-2 px-3 py-2 text-sm shadow-inner shadow-k-gold/5 dark:border-k-paper-line dark:bg-k-film-edge/40" />
@@ -327,7 +327,7 @@ function CustomForm() {
       </div>
 
       <div>
-        <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-film-edge/40">
+        <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-ink/70">
           {t("purchases.notes")}
         </label>
         <input type="text" name="notes" placeholder={t("purchases.notes_placeholder")} className="mt-1 w-full rounded-md border border-k-paper-line bg-k-cream-2 px-3 py-2 text-sm shadow-inner shadow-k-gold/5 dark:border-k-paper-line dark:bg-k-film-edge/40" />

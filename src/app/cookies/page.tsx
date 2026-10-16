@@ -11,7 +11,7 @@ export default function CookiesPage() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-12 sm:py-16">
       <div className="mb-8">
-        <p className="text-xs text-k-film-edge/55 dark:text-k-film-edge/55">
+        <p className="text-xs text-k-film-edge/55 dark:text-k-ink/75">
           {t("legal.last_updated")} {lastUpdated}
         </p>
         <h1 className="mt-2 text-2xl font-bold text-k-film-edge dark:text-k-yellow sm:text-3xl">
@@ -105,8 +105,8 @@ export default function CookiesPage() {
         </p>
       </Section>
 
-      <div className="mt-12 text-center text-xs text-k-film-edge/40 dark:text-k-film-edge/70">
-        <Link href="/" className="hover:text-k-film-edge/70 dark:hover:text-k-film-edge/40">
+      <div className="mt-12 text-center text-xs text-k-film-edge/40 dark:text-k-ink/85">
+        <Link href="/" className="hover:text-k-film-edge/70 dark:hover:text-k-ink/85">
           {t("legal.back_home")}
         </Link>
       </div>
@@ -137,9 +137,9 @@ function CookieRow({
   return (
     <tr className="align-top">
       <td className="py-3 pr-4 font-medium text-k-film-edge dark:text-k-yellow/90">{name}</td>
-      <td className="py-3 pr-4 text-k-film-edge/70 dark:text-k-film-edge/40">{duration}</td>
-      <td className="py-3 pr-4 text-k-film-edge/70 dark:text-k-film-edge/40">{necessary}</td>
-      <td className="py-3 text-k-film-edge/70 dark:text-k-film-edge/40">{desc}</td>
+      <td className="py-3 pr-4 text-k-film-edge/70 dark:text-k-ink/70">{duration}</td>
+      <td className="py-3 pr-4 text-k-film-edge/70 dark:text-k-ink/70">{necessary}</td>
+      <td className="py-3 text-k-film-edge/70 dark:text-k-ink/70">{desc}</td>
     </tr>
   );
 }

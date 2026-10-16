@@ -31,7 +31,7 @@ export function SettingsSwitcher() {
                 "whitespace-nowrap rounded-full px-2.5 py-0.5 font-semibold transition-colors " +
                 (active
                   ? "bg-k-yellow text-k-film-edge shadow"
-                  : "text-k-film-edge/70 hover:text-k-film-edge dark:text-k-film-edge/80 dark:hover:text-k-yellow")
+                  : "text-k-film-edge/70 hover:text-k-film-edge dark:text-k-ink/85 dark:hover:text-k-yellow")
               }
             >
               {l.label}
@@ -63,15 +63,6 @@ export function SettingsSwitcher() {
         </span>
       </div>
 
-      {/* 手机：语言简化成单按钮切换（循环） */}
-      <button
-        type="button"
-        onClick={() => setLocale(locale === "en" ? "zh" : "en")}
-        className="inline-flex items-center gap-1 rounded-full border border-k-paper-line bg-k-yellow/20 px-2 py-0.5 text-[11px] font-bold text-k-film-edge md:hidden dark:border-k-paper-line dark:text-k-yellow"
-        aria-label={t("settings.language")}
-      >
-        {locale === "en" ? "中 / EN" : "EN / 中"}
-      </button>
     </div>
   );
 }

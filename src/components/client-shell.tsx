@@ -80,12 +80,12 @@ function BodyShell({
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 sm:px-6">
           {/* 第一行：版权 + 页面链接 */}
           <div className="flex w-full flex-col items-center justify-between gap-3 sm:flex-row">
-            <p className="text-xs text-k-film-edge/55 dark:text-k-film-edge/70 whitespace-nowrap">
+            <p className="w-full text-center text-xs text-k-film-edge/55 dark:text-k-ink/85 sm:w-auto sm:text-left">
               © {new Date().getFullYear()} FilmLedger · {t("footer.tagline")}
             </p>
             <nav
               aria-label={t("privacy.title") + " / " + t("terms.title")}
-              className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs text-k-film-edge/55 dark:text-k-film-edge/70"
+              className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs text-k-film-edge/55 dark:text-k-ink/85"
             >
               <Link
                 href="/privacy"
@@ -121,12 +121,12 @@ function BodyShell({
           </div>
 
           {/* 第二行：打赏说明 */}
-          <p className="w-full text-[11px] leading-5 text-k-film-edge/45 dark:text-k-film-edge/70 text-center sm:text-left">
+          <p className="w-full text-[11px] leading-5 text-k-film-edge/45 dark:text-k-ink/80 text-center sm:text-left">
             {t("footer.mor_line")}
           </p>
 
           {/* 第三行：支持邮箱 */}
-          <p className="w-full text-[11px] leading-5 text-k-film-edge/45 dark:text-k-film-edge/70 text-center sm:text-left">
+          <p className="w-full text-[11px] leading-5 text-k-film-edge/45 dark:text-k-ink/80 text-center sm:text-left">
             📮 {t("legal.contact_email")}：
             <a
               href={`mailto:${supportEmail}`}

@@ -45,10 +45,10 @@ export function DashboardView(props: Props) {
     return (
       <div className="mx-auto max-w-5xl px-4 py-8">
         <h1 className="text-2xl font-bold tracking-tight">{t("dashboard.title")}</h1>
-        <p className="mt-1 text-sm text-k-film-edge/55 dark:text-k-film-edge/40">
+        <p className="mt-1 text-sm text-k-film-edge/55 dark:text-k-ink/70">
           {t("dashboard.subtitle")}
         </p>
-        <div className="mt-6 rounded-lg border border-dashed border-k-paper-line p-6 text-center text-sm text-k-film-edge/40 dark:border-k-paper-line/70 dark:text-k-film-edge/55">
+        <div className="mt-6 rounded-lg border border-dashed border-k-paper-line p-6 text-center text-sm text-k-film-edge/40 dark:border-k-paper-line/70 dark:text-k-ink/75">
           {t("common.please_login")}
           <Link
             href="/login?redirect=/dashboard"
@@ -68,7 +68,7 @@ export function DashboardView(props: Props) {
     <div className="mx-auto max-w-5xl space-y-8 px-4 py-8">
       <div>
         <h1 className="text-2xl font-bold tracking-tight">{t("dashboard.title")}</h1>
-        <p className="mt-1 text-sm text-k-film-edge/55 dark:text-k-film-edge/40">
+        <p className="mt-1 text-sm text-k-film-edge/55 dark:text-k-ink/70">
           {t("dashboard.subtitle")}
         </p>
       </div>
@@ -92,14 +92,14 @@ export function DashboardView(props: Props) {
           </h2>
           <Link
             href="/purchases"
-            className="text-xs text-k-film-edge/55 hover:text-k-film-edge dark:text-k-film-edge/40 dark:hover:text-zinc-100"
+            className="text-xs text-k-film-edge/55 hover:text-k-film-edge dark:text-k-ink/70 dark:hover:text-zinc-100"
           >
             {t("common.view_all")}
           </Link>
         </div>
 
         {recentPurchases.length === 0 ? (
-          <div className="rounded-lg border border-dashed border-k-paper-line p-8 text-center text-sm text-k-film-edge/40 dark:border-k-paper-line/70 dark:text-k-film-edge/55">
+          <div className="rounded-lg border border-dashed border-k-paper-line p-8 text-center text-sm text-k-film-edge/40 dark:border-k-paper-line/70 dark:text-k-ink/75">
             {t("dashboard.no_purchases_yet")}
             <br />
             <Link
@@ -110,7 +110,7 @@ export function DashboardView(props: Props) {
             </Link>
           </div>
         ) : (
-          <div className="overflow-hidden rounded-lg border border-k-paper-line dark:border-k-paper-line">
+          <div className="overflow-x-auto rounded-lg border border-k-paper-line dark:border-k-paper-line">
             <table className="w-full text-left text-sm">
               <thead className="bg-k-yellow/15 text-xs uppercase text-k-film-edge dark:bg-k-film dark:text-k-yellow">
                 <tr>
@@ -127,7 +127,7 @@ export function DashboardView(props: Props) {
                       <div className="font-medium text-k-film-edge dark:text-k-yellow">
                         {p.brand} {p.name}
                       </div>
-                      <div className="text-xs text-k-film-edge/55 dark:text-k-film-edge/40">
+                      <div className="text-xs text-k-film-edge/55 dark:text-k-ink/70">
                         ISO {p.iso}
                       </div>
                     </td>
@@ -175,12 +175,12 @@ function StatCard({
 }) {
   return (
     <div className="rounded-lg border border-k-paper-line bg-k-cream-2 p-4 dark:border-k-paper-line dark:bg-k-film-edge/60">
-      <p className="text-xs text-k-film-edge/55 dark:text-k-film-edge/40">{label}</p>
+      <p className="text-xs text-k-film-edge/55 dark:text-k-ink/70">{label}</p>
       <p className="mt-1 text-xl font-semibold tabular-nums text-k-film-edge dark:text-k-yellow">
         {value}
       </p>
       {hint && (
-        <p className="mt-1 text-xs text-k-film-edge/40 dark:text-k-film-edge/55">{hint}</p>
+        <p className="mt-1 text-xs text-k-film-edge/40 dark:text-k-ink/75">{hint}</p>
       )}
     </div>
   );
@@ -193,7 +193,7 @@ function QuickLink({ href, label, desc }: { href: string; label: string; desc: s
       className="block rounded-lg border border-k-paper-line bg-k-cream-2 p-4 transition-colors hover:border-zinc-400 hover:bg-k-cream/60 dark:border-k-paper-line dark:bg-k-film-edge/60 dark:hover:border-zinc-600 dark:hover:bg-k-gold/20"
     >
       <p className="text-sm font-medium text-k-film-edge dark:text-k-yellow">{label}</p>
-      <p className="mt-1 text-xs text-k-film-edge/55 dark:text-k-film-edge/40">{desc}</p>
+      <p className="mt-1 text-xs text-k-film-edge/55 dark:text-k-ink/70">{desc}</p>
     </Link>
   );
 }

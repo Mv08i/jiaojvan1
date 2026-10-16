@@ -39,6 +39,7 @@ const en = {
   "nav.support": "Support ☕",
   "nav.login": "Log in",
   "nav.logout": "Log out",
+  "nav.menu": "Menu",
 
   "footer.tagline": "Made with 🎞️ for people who still shoot film",
   "footer.privacy": "Privacy",
@@ -364,6 +365,7 @@ const zh = {
   "nav.support": "支持作者 ☕",
   "nav.login": "登录",
   "nav.logout": "退出登录",
+  "nav.menu": "菜单",
 
   "footer.tagline": "Made with 🎞️ · 给还在按快门的你",
   "footer.privacy": "隐私政策",

@@ -37,19 +37,19 @@ export function LoadView(props: Props) {
       <div className="flex items-end justify-between">
         <div>
           <h1 className="text-2xl font-bold tracking-tight">{t("load.title")}</h1>
-          <p className="mt-1 text-sm text-k-film-edge/55 dark:text-k-film-edge/40">
+          <p className="mt-1 text-sm text-k-film-edge/55 dark:text-k-ink/70">
             {t("load.subtitle")}
           </p>
         </div>
         {props.cameras.length > 0 && (
-          <p className="text-xs text-k-film-edge/55 dark:text-k-film-edge/40">
+          <p className="text-xs text-k-film-edge/55 dark:text-k-ink/70">
             {t("load.x_of_y_loaded", { loaded: loadedCount, total: props.cameras.length })}
           </p>
         )}
       </div>
 
       {props.notLoggedIn && (
-        <div className="rounded-lg border border-dashed border-k-paper-line p-6 text-center text-sm text-k-film-edge/40 dark:border-k-paper-line/70 dark:text-k-film-edge/55">
+        <div className="rounded-lg border border-dashed border-k-paper-line p-6 text-center text-sm text-k-film-edge/40 dark:border-k-paper-line/70 dark:text-k-ink/75">
           {t("common.please_login")}
         </div>
       )}
@@ -57,7 +57,7 @@ export function LoadView(props: Props) {
       {!props.notLoggedIn && <CameraForm />}
 
       {!props.notLoggedIn && props.cameras.length === 0 && (
-        <div className="rounded-lg border border-dashed border-k-paper-line p-12 text-center text-sm text-k-film-edge/40 dark:border-k-paper-line/70 dark:text-k-film-edge/55">
+        <div className="rounded-lg border border-dashed border-k-paper-line p-12 text-center text-sm text-k-film-edge/40 dark:border-k-paper-line/70 dark:text-k-ink/75">
           {t("load.empty")}
           <br />
           <span className="text-xs">{t("load.empty_hint")}</span>
@@ -94,12 +94,12 @@ function CameraCard({ camera, purchases }: { camera: Camera; purchases: Purchase
               {camera.brand} {camera.model}
             </span>
             {camera.nickname && (
-              <span className="text-xs text-k-film-edge/55 dark:text-k-film-edge/40">
+              <span className="text-xs text-k-film-edge/55 dark:text-k-ink/70">
                 · {camera.nickname}
               </span>
             )}
           </div>
-          <p className="mt-0.5 text-xs text-k-film-edge/55 dark:text-k-film-edge/40">
+          <p className="mt-0.5 text-xs text-k-film-edge/55 dark:text-k-ink/70">
             {formatLabel}
             {camera.notes ? ` · ${camera.notes}` : ""}
           </p>

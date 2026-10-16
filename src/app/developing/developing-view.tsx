@@ -37,13 +37,13 @@ export function DevelopingView(props: Props) {
     <div className="mx-auto max-w-5xl space-y-6 px-4 py-8">
       <div>
         <h1 className="text-2xl font-bold tracking-tight">{t("dev.title")}</h1>
-        <p className="mt-1 text-sm text-k-film-edge/55 dark:text-k-film-edge/40">
+        <p className="mt-1 text-sm text-k-film-edge/55 dark:text-k-ink/70">
           {t("home.feature2_desc")}
         </p>
       </div>
 
       {props.notLoggedIn && (
-        <div className="rounded-lg border border-dashed border-k-paper-line p-6 text-center text-sm text-k-film-edge/40 dark:border-k-paper-line/70 dark:text-k-film-edge/55">
+        <div className="rounded-lg border border-dashed border-k-paper-line p-6 text-center text-sm text-k-film-edge/40 dark:border-k-paper-line/70 dark:text-k-ink/75">
           {t("common.please_login")}
         </div>
       )}
@@ -51,7 +51,7 @@ export function DevelopingView(props: Props) {
       {!props.notLoggedIn && <DevelopingForm purchases={props.purchases} />}
 
       {!props.notLoggedIn && props.records.length === 0 && (
-        <div className="rounded-lg border border-dashed border-k-paper-line p-12 text-center text-sm text-k-film-edge/40 dark:border-k-paper-line/70 dark:text-k-film-edge/55">
+        <div className="rounded-lg border border-dashed border-k-paper-line p-12 text-center text-sm text-k-film-edge/40 dark:border-k-paper-line/70 dark:text-k-ink/75">
           {t("dev.empty")}
           <br />
           <span className="text-xs">{t("dev.empty_hint")}</span>
@@ -62,7 +62,7 @@ export function DevelopingView(props: Props) {
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
             <div className="rounded-lg border border-k-paper-line bg-k-cream-2 p-4 dark:border-k-paper-line dark:bg-k-film-edge/60">
-              <p className="text-xs text-k-film-edge/55 dark:text-k-film-edge/40">
+              <p className="text-xs text-k-film-edge/55 dark:text-k-ink/70">
                 {t("table.dev_count")}
               </p>
               <p className="mt-1 text-xl font-semibold tabular-nums text-k-film-edge dark:text-k-yellow">
@@ -70,7 +70,7 @@ export function DevelopingView(props: Props) {
               </p>
             </div>
             <div className="rounded-lg border border-k-paper-line bg-k-cream-2 p-4 dark:border-k-paper-line dark:bg-k-film-edge/60">
-              <p className="text-xs text-k-film-edge/55 dark:text-k-film-edge/40">
+              <p className="text-xs text-k-film-edge/55 dark:text-k-ink/70">
                 {t("table.dev_subtotal")}
               </p>
               <p className="mt-1 text-xl font-semibold tabular-nums text-k-film-edge dark:text-k-yellow">
@@ -78,19 +78,19 @@ export function DevelopingView(props: Props) {
               </p>
             </div>
             <div className="col-span-2 rounded-lg border border-k-paper-line bg-k-cream-2 p-4 sm:col-span-1 dark:border-k-paper-line dark:bg-k-film-edge/60">
-              <p className="text-xs text-k-film-edge/55 dark:text-k-film-edge/40">
+              <p className="text-xs text-k-film-edge/55 dark:text-k-ink/70">
                 {t("table.total_cost_including")}
               </p>
               <p className="mt-1 text-xl font-semibold tabular-nums text-k-film-edge dark:text-k-yellow">
                 {money(totalCost)}
               </p>
-              <p className="mt-1 text-xs text-k-film-edge/40 dark:text-k-film-edge/55">
+              <p className="mt-1 text-xs text-k-film-edge/40 dark:text-k-ink/75">
                 {t("table.scan_portion", { amount: money(totalScan) })}
               </p>
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-lg border border-k-paper-line dark:border-k-paper-line">
+          <div className="overflow-x-auto rounded-lg border border-k-paper-line dark:border-k-paper-line">
             <table className="w-full text-left text-sm">
               <thead className="bg-k-yellow/15 text-xs uppercase text-k-film-edge dark:bg-k-film dark:text-k-yellow">
                 <tr>
@@ -117,7 +117,7 @@ export function DevelopingView(props: Props) {
                         </div>
                       )}
                       {r.notes && (
-                        <div className="text-xs text-k-film-edge/40 dark:text-k-film-edge/55">
+                        <div className="text-xs text-k-film-edge/40 dark:text-k-ink/75">
                           {r.notes}
                         </div>
                       )}

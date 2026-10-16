@@ -24,7 +24,7 @@ export function CameraForm() {
 
       <div className="grid grid-cols-2 gap-3">
         <div>
-          <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-film-edge/40">
+          <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-ink/70">
             {t("load.camera_format")}
           </label>
           <select
@@ -41,7 +41,7 @@ export function CameraForm() {
       </div>
 
       <div>
-        <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-film-edge/40">
+        <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-ink/70">
           {t("load.camera_notes")}
         </label>
         <textarea
@@ -89,7 +89,7 @@ function Field({
 }) {
   return (
     <div>
-      <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-film-edge/40">
+      <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-ink/70">
         {label} {required && <span className="text-red-500">*</span>}
       </label>
       <input

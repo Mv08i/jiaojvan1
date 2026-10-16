@@ -16,7 +16,7 @@ export function DevelopingForm({ purchases }: { purchases: Purchase[] }) {
   return (
     <form action={formAction} className="space-y-4 rounded-lg border border-k-paper-line bg-k-cream-2 p-5 dark:border-k-paper-line dark:bg-k-film-edge/60">
       <div>
-        <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-film-edge/40">
+        <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-ink/70">
           {t("dev.linked_purchase_label")}
         </label>
         <select
@@ -31,7 +31,7 @@ export function DevelopingForm({ purchases }: { purchases: Purchase[] }) {
             </option>
           ))}
         </select>
-        <p className="mt-1 text-xs text-k-film-edge/40 dark:text-k-film-edge/55">
+        <p className="mt-1 text-xs text-k-film-edge/40 dark:text-k-ink/75">
           {t("dev.linked_hint")}
         </p>
       </div>
@@ -53,7 +53,7 @@ export function DevelopingForm({ purchases }: { purchases: Purchase[] }) {
       </div>
 
       <div>
-        <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-film-edge/40">
+        <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-ink/70">
           {t("dev.notes")}
         </label>
         <textarea
@@ -105,7 +105,7 @@ function Field({
 }) {
   return (
     <div>
-      <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-film-edge/40">
+      <label className="text-xs font-medium text-k-film-edge/70 dark:text-k-ink/70">
         {label} {required && <span className="text-red-500">*</span>}
       </label>
       <input
